@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 using VIARO.API.Models.Entities;
 using VIARO.API.Services;
+using VIARO.API.Services.interfaces;
 
 namespace VIARO.API.Controllers
 {
@@ -8,9 +10,9 @@ namespace VIARO.API.Controllers
     [Route("api/[controller]")]
     public class AlumnosController : ControllerBase
     {
-        private readonly AlumnoService _alumnoService;
+        private readonly IAlumnoService _alumnoService;
 
-        public AlumnosController(AlumnoService alumnoService)
+        public AlumnosController(IAlumnoService alumnoService)
         {
             _alumnoService = alumnoService;
         }
@@ -33,13 +35,36 @@ namespace VIARO.API.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(new { status="Error", result = ModelState});
+                return BadRequest(new { status = "Error", result = ModelState });
             }
 
             var createdAlumno = await _alumnoService.CreateAlumno(alumno);
 
 
             return CreatedAtAction(nameof(CreateAlumno), new { id = createdAlumno.Id }, new { status = "Ok", result = new { alumno = createdAlumno } });
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateAlumno(Guid id, [FromBody] Alumno updatedAlumno)
+        {
+            if (id != updatedAlumno.Id) return BadRequest(new { status = "Error", result = "El ID del alumno no corresponde" });
+
+            var alumno = await _alumnoService.UpdateAlumnoAsync(id, updatedAlumno);
+
+            if (!alumno) return NotFound();
+
+            return Ok(new { status = "Ok", result = new { alumno = updatedAlumno } });
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteAlumno(int id)
+        {
+            var alumno = await _alumnoService.DeleteAlumno(id);
+
+            if(!alumno) return NotFound();
+
+            return Ok(new { status = "Ok", result = "Alumno eliminado exitosamente" });
         }
     }
 }

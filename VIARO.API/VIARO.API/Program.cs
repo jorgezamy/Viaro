@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using VIARO.API.Data;
 using VIARO.API.Services;
+using VIARO.API.Services.interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +14,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ApiContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<AlumnoService>();
+builder.Services.AddScoped<IAlumnoService, AlumnoService>();
 
 var app = builder.Build();
 
