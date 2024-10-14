@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jorge\\source\\repos\\Viaro\\backend\\VIARO.API\\VIARO.API\\VIARO.API.csproj": {}
+    "C:\\Users\\jorge\\source\\repos\\Viaro\\VIARO.API\\VIARO.API\\VIARO.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jorge\\source\\repos\\Viaro\\backend\\VIARO.API\\VIARO.API\\VIARO.API.csproj": {
+    "C:\\Users\\jorge\\source\\repos\\Viaro\\VIARO.API\\VIARO.API\\VIARO.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jorge\\source\\repos\\Viaro\\backend\\VIARO.API\\VIARO.API\\VIARO.API.csproj",
+        "projectUniqueName": "C:\\Users\\jorge\\source\\repos\\Viaro\\VIARO.API\\VIARO.API\\VIARO.API.csproj",
         "projectName": "VIARO.API",
-        "projectPath": "C:\\Users\\jorge\\source\\repos\\Viaro\\backend\\VIARO.API\\VIARO.API\\VIARO.API.csproj",
+        "projectPath": "C:\\Users\\jorge\\source\\repos\\Viaro\\VIARO.API\\VIARO.API\\VIARO.API.csproj",
         "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jorge\\source\\repos\\Viaro\\backend\\VIARO.API\\VIARO.API\\obj\\",
+        "outputPath": "C:\\Users\\jorge\\source\\repos\\Viaro\\VIARO.API\\VIARO.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,6 +46,20 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
