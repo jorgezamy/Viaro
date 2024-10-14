@@ -1,0 +1,75 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jorge\\source\\repos\\Viaro\\VIARO.API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{566FE308-487D-495C-ADC7-1B83D7B611F7}|VIARO.API\\VIARO.API.csproj|c:\\users\\jorge\\source\\repos\\viaro\\viaro.api\\viaro.api\\services\\alumnoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{566FE308-487D-495C-ADC7-1B83D7B611F7}|VIARO.API\\VIARO.API.csproj|solutionrelative:viaro.api\\services\\alumnoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{566FE308-487D-495C-ADC7-1B83D7B611F7}|VIARO.API\\VIARO.API.csproj|c:\\users\\jorge\\source\\repos\\viaro\\viaro.api\\viaro.api\\controllers\\alumnoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{566FE308-487D-495C-ADC7-1B83D7B611F7}|VIARO.API\\VIARO.API.csproj|solutionrelative:viaro.api\\controllers\\alumnoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{566FE308-487D-495C-ADC7-1B83D7B611F7}|VIARO.API\\VIARO.API.csproj|c:\\users\\jorge\\source\\repos\\viaro\\viaro.api\\viaro.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{566FE308-487D-495C-ADC7-1B83D7B611F7}|VIARO.API\\VIARO.API.csproj|solutionrelative:viaro.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\jorge\\source\\repos\\Viaro\\VIARO.API\\VIARO.API\\Program.cs",
+              "RelativeDocumentMoniker": "VIARO.API\\Program.cs",
+              "ToolTip": "C:\\Users\\jorge\\source\\repos\\Viaro\\VIARO.API\\VIARO.API\\Program.cs",
+              "RelativeToolTip": "VIARO.API\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T21:39:55.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AlumnoService.cs",
+              "DocumentMoniker": "C:\\Users\\jorge\\source\\repos\\Viaro\\VIARO.API\\VIARO.API\\Services\\AlumnoService.cs",
+              "RelativeDocumentMoniker": "VIARO.API\\Services\\AlumnoService.cs",
+              "ToolTip": "C:\\Users\\jorge\\source\\repos\\Viaro\\VIARO.API\\VIARO.API\\Services\\AlumnoService.cs",
+              "RelativeToolTip": "VIARO.API\\Services\\AlumnoService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T20:59:04.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AlumnosController.cs",
+              "DocumentMoniker": "C:\\Users\\jorge\\source\\repos\\Viaro\\VIARO.API\\VIARO.API\\Controllers\\AlumnosController.cs",
+              "RelativeDocumentMoniker": "VIARO.API\\Controllers\\AlumnosController.cs",
+              "ToolTip": "C:\\Users\\jorge\\source\\repos\\Viaro\\VIARO.API\\VIARO.API\\Controllers\\AlumnosController.cs",
+              "RelativeToolTip": "VIARO.API\\Controllers\\AlumnosController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T20:57:31.03Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

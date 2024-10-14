@@ -17,5 +17,13 @@ namespace VIARO.API.Services
         {
             return await _context.Alumnos.ToListAsync();
         }
+
+        public async Task<Alumno> CreateAlumno(Alumno newAlumno)
+        {
+            _context.Alumnos.Add(newAlumno);
+            await _context.SaveChangesAsync();
+
+            return newAlumno;
+        }
     }
 }

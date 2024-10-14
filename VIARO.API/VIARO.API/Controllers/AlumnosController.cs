@@ -27,5 +27,19 @@ namespace VIARO.API.Controllers
 
             return Ok(alumnos);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> CreateAlumno([FromBody] Alumno alumno)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new { status="Error", result = ModelState});
+            }
+
+            var createdAlumno = await _alumnoService.CreateAlumno(alumno);
+
+
+            return CreatedAtAction(nameof(CreateAlumno), new { id = createdAlumno.Id }, new { status = "Ok", result = new { alumno = createdAlumno } });
+        }
     }
 }
