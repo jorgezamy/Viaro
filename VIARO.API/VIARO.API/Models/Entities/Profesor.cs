@@ -11,9 +11,11 @@ namespace VIARO.API.Models.Entities
         public string Nombre { get; set; } = "";
 
         [Required]
-        public string Apellidps { get; set; } = "";
+        public string Apellidos { get; set; } = "";
 
         [Required]
         public string Genero { get; set; } = "";
+
+        public ICollection<Grado> Grados { get; set; } = new List<Grado>();
     }
 }
