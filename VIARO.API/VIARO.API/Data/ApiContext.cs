@@ -8,6 +8,6 @@ namespace VIARO.API.Data
         public ApiContext(DbContextOptions<ApiContext> options) : base(options) { }
 
         public DbSet<Alumno> Alumnos { get; set; }
-        public DbSet<Profesor> profesores { get; set; }
+        public DbSet<Profesor> Profesores { get; set; }
     }
 }

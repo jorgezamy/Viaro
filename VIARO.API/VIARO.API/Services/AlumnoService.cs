@@ -60,7 +60,7 @@ namespace VIARO.API.Services
         {
             var alumno = await _context.Alumnos.FindAsync(id);
 
-            if (alumno != null)
+            if (alumno == null)
             {
                 return false;
             }

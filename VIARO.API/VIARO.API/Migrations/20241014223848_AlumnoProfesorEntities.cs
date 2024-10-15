@@ -27,18 +27,17 @@ namespace VIARO.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "profesores",
+                name: "Profesores",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Apellidps = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Genero = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_profesores", x => x.Id);
+                    table.PrimaryKey("PK_Profesores", x => x.Id);
                 });
         }
 
@@ -49,7 +48,7 @@ namespace VIARO.API.Migrations
                 name: "Alumnos");
 
             migrationBuilder.DropTable(
-                name: "profesores");
+                name: "Profesores");
         }
     }
 }

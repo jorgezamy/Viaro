@@ -5,7 +5,7 @@ namespace VIARO.API.Models.Entities
     public class Profesor
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         public string Nombre { get; set; } = "";

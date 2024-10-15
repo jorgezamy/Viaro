@@ -50,11 +50,9 @@ namespace VIARO.API.Migrations
 
             modelBuilder.Entity("VIARO.API.Models.Entities.Profesor", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Apellidps")
                         .IsRequired()
@@ -70,7 +68,7 @@ namespace VIARO.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("profesores");
+                    b.ToTable("Profesores");
                 });
 #pragma warning restore 612, 618
         }
