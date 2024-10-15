@@ -9,6 +9,7 @@ namespace VIARO.API.Data
 
         public DbSet<Alumno> Alumnos { get; set; }
         public DbSet<Profesor> Profesores { get; set; }
+        public DbSet<Grado> Grados { get; set; }
         public DbSet<AlumnoGrado> AlumnoGrados { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -25,7 +26,7 @@ namespace VIARO.API.Data
 
             modelBuilder.Entity<Grado>()
                 .HasOne(g => g.Profesor)
-                .WithMany(p => p.Grados)
+                .WithMany()
                 .HasForeignKey(g => g.ProfesorId);
         }
     }

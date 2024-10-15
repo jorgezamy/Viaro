@@ -16,6 +16,6 @@ namespace VIARO.API.Models.Entities
         [Required]
         public string Genero { get; set; } = "";
 
-        public ICollection<Grado> Grados { get; set; } = new List<Grado>();
+        //public ICollection<Grado>? Grados { get; set; }
     }
 }

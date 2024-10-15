@@ -4,7 +4,9 @@ using VIARO.API.Services.interfaces;
 
 namespace VIARO.API.Controllers
 {
-    public class ProfesoresController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ProfesoresController : ControllerBase
     {
         private readonly IProfesorService _profesorService;
 
@@ -14,16 +16,16 @@ namespace VIARO.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Alumno>>> GetAlumnos()
+        public async Task<ActionResult<List<Profesor>>> GetProfesores()
         {
-            var alumnos = await _profesorService.GetProfesores();
+            var profesores = await _profesorService.GetProfesores();
 
-            if (alumnos == null || !alumnos.Any())
+            if (profesores == null || !profesores.Any())
             {
                 return NotFound();
             }
 
-            return Ok(alumnos);
+            return Ok(profesores);
         }
 
         [HttpPost]

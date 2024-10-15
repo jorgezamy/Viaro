@@ -16,6 +16,7 @@ builder.Services.AddDbContext<ApiContext>(options => options.UseSqlServer(builde
 
 builder.Services.AddScoped<IAlumnoService, AlumnoService>();
 builder.Services.AddScoped<IProfesorService, ProfesorService>();
+builder.Services.AddScoped<IGradosAlumnosService, GradosAlumnosService>();
 
 var app = builder.Build();
 
