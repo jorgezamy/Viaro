@@ -56,7 +56,7 @@ namespace VIARO.API.Services
             return true;
         }
 
-        public async Task<bool> DeleteAlumno(int id)
+        public async Task<bool> DeleteAlumno(Guid id)
         {
             var alumno = await _context.Alumnos.FindAsync(id);
 

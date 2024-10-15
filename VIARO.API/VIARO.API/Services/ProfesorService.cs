@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VIARO.API.Data;
 using VIARO.API.Models.Entities;
+using VIARO.API.Services.interfaces;
 
 namespace VIARO.API.Services
 {
-    public class ProfesorService
+    public class ProfesorService : IProfesorService
     {
         private readonly ApiContext _context;
 
@@ -13,7 +14,7 @@ namespace VIARO.API.Services
             _context = context;
         }
 
-        public async Task<List<Profesor>> GetProfesors()
+        public async Task<List<Profesor>> GetProfesores()
         {
             return await _context.Profesores.ToListAsync();
         }

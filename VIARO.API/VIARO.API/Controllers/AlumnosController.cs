@@ -58,7 +58,7 @@ namespace VIARO.API.Controllers
 
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteAlumno(int id)
+        public async Task<ActionResult> DeleteAlumno(Guid id)
         {
             var alumno = await _alumnoService.DeleteAlumno(id);
 

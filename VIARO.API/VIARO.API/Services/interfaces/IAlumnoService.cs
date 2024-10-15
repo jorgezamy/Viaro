@@ -11,6 +11,6 @@ namespace VIARO.API.Services.interfaces
 
         Task<bool> UpdateAlumnoAsync(Guid id, Alumno alumno);
 
-        Task<bool> DeleteAlumno(int id);
+        Task<bool> DeleteAlumno(Guid id);
     }
 }

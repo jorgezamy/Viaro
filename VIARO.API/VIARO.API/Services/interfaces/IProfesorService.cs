@@ -4,12 +4,12 @@ namespace VIARO.API.Services.interfaces
 {
     public interface IProfesorService
     {
-        Task<List<Alumno>> GetProfesores();
+        Task<List<Profesor>> GetProfesores();
 
-        Task<Alumno> CreateProfesor(Alumno newAlumno);
+        Task<Profesor> CreateProfesor(Profesor newProfesor);
 
-        Task<bool> UpdateProfesorAsync(Guid id, Alumno alumno);
+        Task<bool> UpdateProfesorAsync(Guid id, Profesor profesor);
 
-        Task<bool> DeleteProfesor(int id);
+        Task<bool> DeleteProfesor(Guid id);
     }
 }
