@@ -11,7 +11,7 @@ namespace VIARO.API.Controllers
     {
         private readonly IGradosAlumnosService _gradosAlumnosService;
 
-        public GradosController(GradosAlumnosService gradosAlumnosService)
+        public GradosController(IGradosAlumnosService gradosAlumnosService)
         {
             _gradosAlumnosService = gradosAlumnosService;
         }
