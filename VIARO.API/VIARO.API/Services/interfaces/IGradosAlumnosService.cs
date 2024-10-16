@@ -10,9 +10,9 @@ namespace VIARO.API.Services.interfaces
         Task<bool> UpdateGradoAsync(int id, GradoDTO updatedGrado);
         Task<bool> DeleteGradoAsync(int id);
 
-        Task<List<AlumnoGrado>> GetAlumnoGradosAsync();
-        Task<AlumnoGrado> CreateAlumnoGradoAsync(AlumnoGrado alumnoGrado);
-        Task<bool> UpdateAlumnoGradoAsync(int id, AlumnoGrado updatedGrado);
+        Task<List<AlumnoGradoDTO>> GetAlumnoGradosAsync();
+        Task<AlumnoGradoDTO> CreateAlumnoGradoAsync(AlumnoGradoDTO alumnoGrado);
+        Task<bool> UpdateAlumnoGradoAsync(int id, AlumnoGradoDTO updatedGrado);
         Task<bool> DeleteAlumnoGradoAsync(int id);
     }
 }

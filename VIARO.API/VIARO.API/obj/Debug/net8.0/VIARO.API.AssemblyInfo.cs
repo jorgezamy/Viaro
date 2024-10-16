@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VIARO.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b9916f8a6e3450b925ebd907589c91de254a258")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+40e346eb4a2df702dddd2133999a383b574745f4")]
 [assembly: System.Reflection.AssemblyProductAttribute("VIARO.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VIARO.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

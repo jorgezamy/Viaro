@@ -32,6 +32,23 @@ namespace VIARO.API.Services
             return grado;
         }
 
+        private AlumnoGrado MapToAlumnoGrado(AlumnoGradoDTO alumnoGradoDTO)
+        {
+            var alumnoGrado = new AlumnoGrado
+            {
+                AlumnoId = alumnoGradoDTO.AlumnoId,
+                GradoId= alumnoGradoDTO.GradoId,
+                Seccion= alumnoGradoDTO.Seccion
+            };
+
+            if (alumnoGradoDTO.Id.HasValue)
+            {
+                alumnoGrado.Id = alumnoGradoDTO.Id.Value;
+            }
+
+            return alumnoGrado;
+        }
+
         public async Task<List<GradoDTO>> GetGradosAsync()
         {
             var grados = await _context.Grados.ToListAsync();
@@ -94,26 +111,42 @@ namespace VIARO.API.Services
             return true;
         }
 
-        public async Task<List<AlumnoGrado>> GetAlumnoGradosAsync()
+        public async Task<List<AlumnoGradoDTO>> GetAlumnoGradosAsync()
         {
-            return await _context.AlumnoGrados.ToListAsync();
+            var alumnosGrados = await _context.AlumnoGrados.ToListAsync();
+
+            var alumnosGradosDTO = alumnosGrados.Select(alumnoGrado => new AlumnoGradoDTO
+            {
+                Id = alumnoGrado.Id,
+                AlumnoId = alumnoGrado.AlumnoId,
+                GradoId = alumnoGrado.GradoId,
+                Seccion = alumnoGrado.Seccion,
+            }).ToList();
+
+            return alumnosGradosDTO;
         }
 
-        public async Task<AlumnoGrado> CreateAlumnoGradoAsync(AlumnoGrado alummnoGrado)
+        public async Task<AlumnoGradoDTO> CreateAlumnoGradoAsync(AlumnoGradoDTO alumnoGradoDTO)
         {
-            _context.AlumnoGrados.Add(alummnoGrado);
+            var alumnoGrado = MapToAlumnoGrado(alumnoGradoDTO);
+
+            _context.AlumnoGrados.Add(alumnoGrado);
             await _context.SaveChangesAsync();
 
-            return alummnoGrado;
+            alumnoGradoDTO.Id = alumnoGrado.Id;
+
+            return alumnoGradoDTO;
         }
 
-        public async Task<bool> UpdateAlumnoGradoAsync(int id, AlumnoGrado updatedAlumnoGrado)
+        public async Task<bool> UpdateAlumnoGradoAsync(int id, AlumnoGradoDTO updatedAlumnoGrado)
         {
             var alumnoGrado = await _context.AlumnoGrados.FindAsync(id);
 
             if (alumnoGrado == null) return false;
 
-            _context.Entry(alumnoGrado).CurrentValues.SetValues(updatedAlumnoGrado);
+            var newEntity = MapToAlumnoGrado(updatedAlumnoGrado);
+
+            _context.Entry(alumnoGrado).CurrentValues.SetValues(newEntity);
             _context.Entry(alumnoGrado).Property(c => c.Id).IsModified = false;
 
             try

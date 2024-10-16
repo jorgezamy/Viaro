@@ -49,7 +49,7 @@ namespace VIARO.API.Controllers
             return Ok(new { status = "Ok", result = "Grado actualizado exitosamente." });
         }
 
-        [HttpDelete("Grados")]
+        [HttpDelete("Grados/{id}")]
         public async Task<ActionResult> DeleteGrado(int id)
         {
             var grado = await _gradosAlumnosService.DeleteGradoAsync(id);
@@ -70,7 +70,7 @@ namespace VIARO.API.Controllers
         }
 
         [HttpPost("GradosAlumnos")]
-        public async Task<ActionResult<AlumnoGrado>> CreateAlumnoGrado([FromBody] AlumnoGrado alumnoGrado)
+        public async Task<ActionResult<AlumnoGradoDTO>> CreateAlumnoGrado([FromBody] AlumnoGradoDTO alumnoGrado)
         {
             if (!ModelState.IsValid) return BadRequest(new { status = "Error", result = ModelState });
 
@@ -79,8 +79,8 @@ namespace VIARO.API.Controllers
             return CreatedAtAction(nameof(createdAlumnoGrado), new { id = createdAlumnoGrado.Id }, new { status = "Ok", result = new { grado = createdAlumnoGrado } });
         }
 
-        [HttpPut("GradosAlumnos")]
-        public async Task<ActionResult> UpdateAlumnoGrado(int id, [FromBody] AlumnoGrado updatedAlumnoGrado)
+        [HttpPut("GradosAlumnos/{id}")]
+        public async Task<ActionResult> UpdateAlumnoGrado(int id, [FromBody] AlumnoGradoDTO updatedAlumnoGrado)
         {
             if (id != updatedAlumnoGrado.Id) return BadRequest(new { status = "Error", result = "El Id del grado no corresponde" });
 
@@ -91,7 +91,7 @@ namespace VIARO.API.Controllers
             return Ok(new { status = "Ok", result = "Grado actualizado exitosamente." });
         }
 
-        [HttpDelete("GradosAlumnos")]
+        [HttpDelete("GradosAlumnos/{id}")]
         public async Task<ActionResult> DeleteAlumnoGrado(int id)
         {
             var alumnoGrado = await _gradosAlumnosService.DeleteAlumnoGradoAsync(id);
