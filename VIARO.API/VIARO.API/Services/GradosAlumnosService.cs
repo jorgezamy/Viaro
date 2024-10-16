@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 using VIARO.API.Data;
+using VIARO.API.Models.DTOs;
 using VIARO.API.Models.Entities;
 using VIARO.API.Services.interfaces;
 
@@ -15,26 +16,57 @@ namespace VIARO.API.Services
             _context = context;
         }
 
-        public async Task<List<Grado>> GetGradosAsync()
+        private Grado MapToGrado(GradoDTO gradoDTO)
         {
-            return await _context.Grados.ToListAsync();
-        }
+            var grado = new Grado
+            {
+                Nombre = gradoDTO.Nombre,
+                ProfesorId = gradoDTO.ProfesorId,
+            };
 
-        public async Task<Grado> CreateGradoAsync(Grado grado)
-        {
-            _context.Grados.Add(grado);
-            await _context.SaveChangesAsync();
+            if (gradoDTO.Id.HasValue)
+            {
+                grado.Id = gradoDTO.Id.Value;
+            }
 
             return grado;
         }
 
-        public async Task<bool> UpdateGradoAsync(int id, Grado updatedGrado)
+        public async Task<List<GradoDTO>> GetGradosAsync()
+        {
+            var grados = await _context.Grados.ToListAsync();
+
+            var gradosDTOs = grados.Select(grado => new GradoDTO
+            {
+                Id = grado.Id,
+                Nombre = grado.Nombre,
+                ProfesorId = grado.ProfesorId
+            }).ToList();
+
+            return gradosDTOs;
+        }
+
+        public async Task<GradoDTO> CreateGradoAsync(GradoDTO gradoDTO)
+        {
+            var grado = MapToGrado(gradoDTO);
+
+            _context.Grados.Add(grado);
+            await _context.SaveChangesAsync();
+
+            gradoDTO.Id = grado.Id;
+
+            return gradoDTO;
+        }
+
+        public async Task<bool> UpdateGradoAsync(int id, GradoDTO updatedGrado)
         {
             var grado = await _context.Grados.FindAsync(id);
 
             if(grado == null) return false;
 
-            _context.Entry(grado).CurrentValues.SetValues(updatedGrado);
+            var updatedEntity = MapToGrado(updatedGrado);
+
+            _context.Entry(grado).CurrentValues.SetValues(updatedEntity);
             _context.Entry(grado).Property(c => c.Id).IsModified = false;
 
             try

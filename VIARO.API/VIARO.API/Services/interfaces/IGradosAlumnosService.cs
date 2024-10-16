@@ -1,12 +1,13 @@
-﻿using VIARO.API.Models.Entities;
+﻿using VIARO.API.Models.DTOs;
+using VIARO.API.Models.Entities;
 
 namespace VIARO.API.Services.interfaces
 {
     public interface IGradosAlumnosService
     {
-        Task<List<Grado>> GetGradosAsync();
-        Task<Grado> CreateGradoAsync(Grado grado);
-        Task<bool> UpdateGradoAsync(int id, Grado updatedGrado);
+        Task<List<GradoDTO>> GetGradosAsync();
+        Task<GradoDTO> CreateGradoAsync(GradoDTO grado);
+        Task<bool> UpdateGradoAsync(int id, GradoDTO updatedGrado);
         Task<bool> DeleteGradoAsync(int id);
 
         Task<List<AlumnoGrado>> GetAlumnoGradosAsync();

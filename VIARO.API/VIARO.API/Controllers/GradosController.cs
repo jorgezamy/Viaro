@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using VIARO.API.Models.DTOs;
 using VIARO.API.Models.Entities;
 using VIARO.API.Services;
 using VIARO.API.Services.interfaces;
@@ -17,7 +18,7 @@ namespace VIARO.API.Controllers
         }
 
         [HttpGet("Grados")]
-        public async Task<ActionResult<List<Grado>>> GetGrados()
+        public async Task<ActionResult<List<GradoDTO>>> GetGrados()
         {
             var grados = await _gradosAlumnosService.GetGradosAsync();
 
@@ -27,17 +28,17 @@ namespace VIARO.API.Controllers
         }
 
         [HttpPost("Grados")]
-        public async Task<ActionResult<Grado>> CreateGrado([FromBody] Grado grado)
+        public async Task<ActionResult<GradoDTO>> CreateGrado([FromBody] GradoDTO gradoDTO)
         {
             if (!ModelState.IsValid) return BadRequest(new { status = "Error", result = ModelState });
 
-            var createdGrado = await _gradosAlumnosService.CreateGradoAsync(grado);
+            var createdGrado = await _gradosAlumnosService.CreateGradoAsync(gradoDTO);
 
-            return CreatedAtAction(nameof(createdGrado), new { id = createdGrado.Id }, new { status = "Ok", result = new { grado = createdGrado } });
+            return CreatedAtAction(nameof(CreateGrado), new { id = createdGrado.Id }, new { status = "Ok", result = new { grado = createdGrado } });
         }
 
-        [HttpPut("Grados")]
-        public async Task<ActionResult> UpdateGrado(int id, [FromBody] Grado updatedGrado)
+        [HttpPut("Grados/{id}")]
+        public async Task<ActionResult> UpdateGrado(int id, [FromBody] GradoDTO updatedGrado)
         {
             if (id != updatedGrado.Id) return BadRequest(new { status = "Error", result = "El Id del grado no corresponde" });
 
