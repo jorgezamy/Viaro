@@ -1,0 +1,60 @@
+<h2 mat-dialog-title>{{ titulo }}</h2>
+<mat-dialog-content>
+  <form>
+    <mat-form-field class="w-100 mx-auto d-flex">
+      <mat-label>ID</mat-label>
+      <input matInput [(ngModel)]="alumno.id" name="id" required disabled />
+    </mat-form-field>
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field>
+          <mat-label>Nombre</mat-label>
+          <input matInput [(ngModel)]="alumno.nombre" name="nombre" required />
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field>
+          <mat-label>Apellido</mat-label>
+          <input
+            matInput
+            [(ngModel)]="alumno.apellido"
+            name="apellido"
+            required
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="w-75 mx-auto d-flex m-3">
+      <mat-label>Género</mat-label>
+      <input matInput [(ngModel)]="alumno.genero" name="genero" required />
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="w-75 mx-auto d-flex m-3">
+      <mat-label>Selecciona una fecha</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [(ngModel)]="alumno.fechaNacimiento"
+        name="fechaNacimiento"
+        required
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cerrar</button>
+  <button mat-button (click)="onSubmit()">Enviar</button>
+</mat-dialog-actions>

@@ -172,3 +172,4 @@ Desktop.ini
 # Ignorar migraciones específicas
 /VIARO.API/VIARO.API/Migrations/20241016004701_finalTouches.Designer.cs
 /VIARO.API/VIARO.API/Migrations/20241016004701_finalTouches.cs
+VIARO.API/VIARO.API/Program.cs
